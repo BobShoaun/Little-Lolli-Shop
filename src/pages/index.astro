@@ -1,0 +1,216 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+
+import { Icon } from "astro-icon";
+---
+
+<Layout title="Little Lolli Shop">
+  <header
+    class="py-3 px-10 shadow-md flex items-center gap-5 bg-white text-gray-800 sticky top-0 z-20"
+  >
+    <img src="/images/logo.jpeg" class="w-14" />
+    <h1 class="text-xl">Little Lolli</h1>
+    <nav class="ml-auto">
+      <ul class="flex gap-5">
+        <li><a href="/" class="hover:underline">Home</a></li>
+        <li><a href="/shop" class="hover:underline">Shop</a></li>
+        <li><a href="/contact" class="hover:underline">Contact</a></li>
+        <li>
+          <a href="/contact" class="hover:underline"
+            ><Icon pack="mdi" name="instagram" class="w-6" /></a
+          >
+        </li>
+        <li>
+          <a href="/contact" class="hover:underline"
+            ><Icon pack="mdi" name="facebook" class="w-6" /></a
+          >
+        </li>
+        <li>
+          <a href="/contact" class="hover:underline"
+            ><Icon pack="ic" name="baseline-tiktok" class="w-6" /></a
+          >
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main class="px-14 py-14 container m-auto">
+    <section
+      class="relative flex rounded-lg overflow-hidden min-h-[30rem] before:absolute before:inset-0 before:-z-10 before:bg-[url('/images/cover.png')] before:bg-no-repeat before:bg-fixed before:bg-center before:bg-cover before:bg-blend-multiply before:blur-sm before:bg-gray-400"
+    >
+      <div class="z-10 text-center m-auto px-10">
+        <h2
+          class="text-5xl text-center max-w-3xl mx-auto text-white font-medium bg-opacity-25 leading-tight"
+        >
+          Little Handcrafted Art with a Big Impact on Sustainable Fashion
+        </h2>
+        <button
+          class="bg-gray-100 hover:bg-gray-200 px-6 py-2 text-gray-700 text-lg mt-7 rounded-md hover:shadow-lg inline-flex items-center gap-2 font-sans font-semibold"
+          >Browse Catalog <Icon
+            pack="fluent"
+            name="arrow-right-12-filled"
+            class="w-6"
+          /></button
+        >
+      </div>
+    </section>
+
+    <section class="mt-20">
+      <h3 class="text-2xl font-bold text-center underline">
+        A bit of Background
+      </h3>
+
+      <div class="flex gap-16 mt-10 justify-center">
+        <div
+          class="relative before:absolute before:bg-red-200 before:inset-0 before:-translate-x-5 before:translate-y-5 before:-z-10 before:rounded-md"
+        >
+          <img
+            src="/images/founder.png"
+            alt="The Founder: Ng Ee Pfen"
+            class="rounded-md w-96 shadow-lg"
+          />
+        </div>
+
+        <div
+          class="text-gray-600 before:content-['“'] before:text-9xl max-w-prose relative before:absolute"
+        >
+          <p class="mt-16">
+            Little Lolli was founded in 2013, when I was in high school making
+            tiny lil things with a a group of friends 😄
+          </p>
+          <p class="mt-2">
+            With the tagline "Little Handcrafted Art with a Big Impact on
+            Sustainble Fashion", we are now a sustainability-focused brand that
+            pushes for zero-waste, creations with intentions, and slow, ethical
+            fashion 🌱
+          </p>
+          <p class="mt-2">
+            Grown and nurtured in Malaysia (much like the artist themselves),
+            Little Lolli pays homage to her roots but knows no geographical
+            bounds; we ship internationally and might even pop up in your
+            country someday! 🌏
+          </p>
+          <p class="mt-2">
+            Thank you for supporting our revival, it means everything for little
+            girls who are finally brave enough to pursue their passions 🥹 Thank
+            you.”
+          </p>
+
+          <p class="mt-4 text-right text-lg">
+            — <span class="font-semibold">Ng Ee Pfen</span>, Founder of Little
+            Lolli
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-24">
+      <h3 class="text-2xl font-bold text-center underline">New Additions</h3>
+
+      <div
+        class="grid grid-cols-[repeat(5,1fr)] gap-10 font-sans justify-center mt-10"
+      >
+        <Card
+          title="Ang Ku Kueh Rings"
+          tag="Rings"
+          price={30.0}
+          originalPrice={60}
+          image="/images/product-1.webp"
+          discount={0.5}
+        />
+
+        <Card
+          title="Cili Padi Earrings"
+          tag="Earrings"
+          price={25.0}
+          image="/images/cili.webp"
+        />
+
+        <Card
+          title="Ethereal Blossom Necklace"
+          tag="Necklace"
+          price={35.0}
+          image="/images/ethereal.webp"
+        />
+
+        <Card
+          title="Kuih-Muih Bracelet & Charms"
+          tag="Bracelet"
+          price={10.0}
+          image="/images/kuih.jpg"
+        />
+
+        <Card
+          title="Sushi Earrings (Set of Six)"
+          tag="Earrings"
+          price={60}
+          originalPrice={90}
+          image="/images/sushi.webp"
+          discount={0.33}
+        />
+      </div>
+    </section>
+  </main>
+  <footer class="bg-blue-100 p-5 mt-20">
+    <p class="text-center">© 2023, Little Lolli</p>
+  </footer>
+</Layout>
+
+<style>
+  /* main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	.astro-a {
+		position: absolute;
+		top: -32px;
+		left: 50%;
+		transform: translatex(-50%);
+		width: 220px;
+		height: auto;
+		z-index: -1;
+	}
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.instructions {
+		margin-bottom: 2rem;
+		border: 1px solid rgba(var(--accent-light), 25%);
+		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
+		padding: 1.5rem;
+		border-radius: 8px;
+	}
+	.instructions code {
+		font-size: 0.8em;
+		font-weight: bold;
+		background: rgba(var(--accent-light), 12%);
+		color: rgb(var(--accent-light));
+		border-radius: 4px;
+		padding: 0.3em 0.4em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent-light));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 2rem;
+		padding: 0;
+	} */
+</style>
