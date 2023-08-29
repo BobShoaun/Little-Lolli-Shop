@@ -1,0 +1,41 @@
+export const products = [
+  {
+    title: "Ang Ku Kueh Rings",
+    slug: "ang-ku-kueh-rings",
+    tag: "Rings",
+    price: 30.0,
+    originalPrice: 60,
+    image: "/images/product-1.webp",
+    discount: 0.5,
+  },
+  {
+    title: "Cili Padi Earrings",
+    slug: "cili-padi-earrings",
+    tag: "Earrings",
+    price: 25.0,
+    image: "/images/cili.webp",
+  },
+  {
+    title: "Ethereal Blossom Necklace",
+    slug: "ethereal-blossom-necklace",
+    tag: "Necklace",
+    price: 35.0,
+    image: "/images/ethereal.webp",
+  },
+  {
+    title: "Kuih-Muih Bracelet & Charms",
+    slug: "kuih-muih-bracelet-and-charms",
+    tag: "Bracelet",
+    price: 10.0,
+    image: "/images/kuih.jpg",
+  },
+  {
+    title: "Sushi Earrings (Set of Six)",
+    slug: "sushi-earrings-set-of-six",
+    tag: "Earrings",
+    price: 60,
+    originalPrice: 90,
+    image: "/images/sushi.webp",
+    discount: 0.33,
+  },
+];

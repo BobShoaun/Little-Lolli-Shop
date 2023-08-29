@@ -1,0 +1,24 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { products } from "../../products";
+
+import { Icon } from "astro-icon";
+
+export function getStaticPaths() {
+  return products.map((product) => ({
+    params: { slug: product.slug },
+  }));
+
+  // return [
+  //   { params: { slug: "clifford" } },
+  //   { params: { slug: "rover" } },
+  //   { params: { slug: "spot" } },
+  // ];
+}
+
+const { slug } = Astro.params;
+---
+
+<Layout title="Little Lolli Shop">
+  <h1>Hello product page {slug}</h1>
+</Layout>
