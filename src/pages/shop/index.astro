@@ -3,11 +3,10 @@ import Layout from "../../layouts/Layout.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
 
 import Card from "../../components/Card.astro";
-import { products } from "../../products";
 
-import { getFirstBlogPost } from "../../lib/api";
+import { getProducts } from "../../lib/api";
 
-const firstPost = await getFirstBlogPost();
+const products = await getProducts();
 ---
 
 <MainLayout>
@@ -16,30 +15,6 @@ const firstPost = await getFirstBlogPost();
   <section
     class="grid grid-cols-[repeat(5,1fr)] gap-10 font-sans justify-center mt-10"
   >
-    {
-      products.map((product) => (
-        <Card
-          title={product.title}
-          tag={product.tag}
-          price={product.price}
-          image={product.image}
-          slug={product.slug}
-        />
-      ))
-    }
-
-    {
-      products.map((product) => (
-        <Card
-          title={product.title}
-          tag={product.tag}
-          price={product.price}
-          image={product.image}
-          slug={product.slug}
-        />
-      ))
-    }
-
-    {JSON.stringify(firstPost, null, 2)}
+    {products.map((product) => <Card {product} />)}
   </section>
 </MainLayout>

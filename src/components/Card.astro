@@ -2,19 +2,37 @@
 import { Icon } from "astro-icon";
 
 interface Props {
-  title: string;
-  tag: string;
-  price: number;
-  image: string;
-  discount?: number;
-  originalPrice?: number;
-  slug: string;
+  product: {
+    title: string;
+    slug: string;
+    currentPrice: number;
+    originalPrice: number;
+    tags: [
+      {
+        title: string;
+        color: string;
+      }
+    ];
+    mainImageUrl: string;
+    description: string;
+  };
 }
 
-const { title, tag, price, image, discount, originalPrice, slug } = Astro.props;
+const { product } = Astro.props;
+const {
+  title,
+  slug,
+  currentPrice,
+  originalPrice,
+  tags,
+  mainImageUrl,
+  description,
+} = product;
+
+const discount = (originalPrice - currentPrice) / originalPrice;
 
 const tagColor = (() => {
-  switch (tag) {
+  switch (tags[0].title) {
     case "Rings":
       return "bg-blue-200";
     case "Bracelet":
@@ -34,14 +52,14 @@ const tagColor = (() => {
     <div class="w-full h-fit overflow-hidden rounded-md shadow-md">
       <img
         class="w-full h-72 object-cover hover:shadow-xl transition-all hover:scale-105"
-        src={image}
+        src={mainImageUrl}
       />
     </div>
 
     {
-      discount && (
+      discount > 0 && (
         <span class="bg-red-300 rounded-full px-3 py-1 font-semibold text-gray-800 absolute top-4 -right-4 shadow-md">
-          {discount * 100}% off
+          {(discount * 100).toFixed(0)}% off
         </span>
       )
     }
@@ -61,16 +79,18 @@ const tagColor = (() => {
     <div class="flex mt-2 gap-2 items-center">
       <span
         class={`rounded-full text-gray-700 px-2.5 py-0.5 text-sm font-semibold mr-auto ${tagColor}`}
-        >{tag}</span
+        >{tags[0].title}</span
       >
 
       {
-        originalPrice && (
+        discount > 0 && (
           <s class="text-gray-400 text-sm">RM {originalPrice.toFixed(2)}</s>
         )
       }
 
-      <p class="font-semibold text-lg text-gray-500">RM {price.toFixed(2)}</p>
+      <p class="font-semibold text-lg text-gray-500">
+        RM {currentPrice.toFixed(2)}
+      </p>
     </div>
 
     <button
