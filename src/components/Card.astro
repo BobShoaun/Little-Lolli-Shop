@@ -32,7 +32,7 @@ const {
 const discount = (originalPrice - currentPrice) / originalPrice;
 
 const tagColor = (() => {
-  switch (tags[0].title) {
+  switch (tags?.[0].title) {
     case "Rings":
       return "bg-blue-200";
     case "Bracelet":
@@ -79,7 +79,7 @@ const tagColor = (() => {
     <div class="flex mt-2 gap-2 items-center">
       <span
         class={`rounded-full text-gray-700 px-2.5 py-0.5 text-sm font-semibold mr-auto ${tagColor}`}
-        >{tags[0].title}</span
+        >{tags?.[0].title}</span
       >
 
       {
